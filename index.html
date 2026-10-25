@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advocacia Digital PRO | O Ecossistema de Sites e Marketing para Advogados</title>
+  <meta name="description" content="Kit definitivo de templates premium e marketing para escritórios de advocacia modernos. Tenha um site de altíssimo padrão no ar em 10 minutos, sem mensalidades.">
+  
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN com configurações personalizadas -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#060911',
+              card: 'rgba(15, 23, 42, 0.65)',
+              gold: '#D4AF37',
+              goldLight: '#F5E7B2',
+              goldDark: '#997A1E',
+              blueGlow: '#1E3A8A',
+              cyanGlow: '#0284C7',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos customizados e utilitários Glassmorphism / Luxo -->
+  <style>
+    /* Reset & Base */
+    body {
+      background-color: #060911;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #D4AF37;
+      selection-color: #060911;
+    }
+
+    ::selection {
+      background: #D4AF37;
+      color: #060911;
+    }
+
+    /* Custom Luxury Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #060911;
+      border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #D4AF37 0%, #AA831E 100%);
+      border-radius: 9999px;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #F8E8B6 0%, #D4AF37 100%);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.8);
+    }
+
+    /* Firefox */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #D4AF37 #060911;
+    }
+
+    /* Ambient Canvas / Orbs */
+    .ambient-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform, opacity;
+    }
+
+    /* Glassmorphism Surface Apple / Luxury Standard */
+    .glass-card {
+      background: rgba(13, 20, 36, 0.6);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.35);
+      box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(212, 175, 55, 0.12);
+    }
+
+    /* Interactive Spotlight Border Effect */
+    .card-spotlight {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(400px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(212, 175, 55, 0.12), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .glass-card:hover .card-spotlight {
+      opacity: 1;
+    }
+
+    /* Luxury Gold Gradients */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #F8E8B6 0%, #D4AF37 50%, #AA831E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-silver-gradient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-gold-gradient {
+      background: linear-gradient(135deg, #ECC94B 0%, #D4AF37 50%, #B7791F 100%);
+    }
+
+    .border-gold-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    /* Magnetic CTA Button */
+    .btn-magnetic {
+      will-change: transform;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .btn-magnetic:active {
+      transform: scale(0.97) !important;
+    }
+
+    /* Grid Overlay Pattern */
+    .grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Headline Masking Reveal */
+    .reveal-wrapper {
+      overflow: hidden;
+      display: block;
+    }
+
+    .reveal-item {
+      display: inline-block;
+      transform: translateY(115%);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen">
+
+  <!-- ========================================== -->
+  <!-- BARRA DE PROGRESSO DOURADA FULL-HEIGHT     -->
+  <!-- ========================================== -->
+  <aside id="side-progress-container" class="fixed right-0 top-0 bottom-0 w-[3px] sm:w-[4px] z-50 pointer-events-none bg-slate-900/30 backdrop-blur-sm overflow-hidden" aria-hidden="true">
+    <!-- Barra preenchida animada via GSAP ocupando toda a altura -->
+    <div id="side-progress-bar" class="w-full h-full bg-gradient-to-b from-[#F8E8B6] via-[#D4AF37] to-[#AA831E] origin-top transform scale-y-0 shadow-[0_0_15px_rgba(212,175,55,0.9)] will-change-transform"></div>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- 1. AMBIENT BACKGROUND MOTION (GSAP DRIVEN) -->
+  <!-- ========================================== -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div id="orb-1" class="ambient-orb w-[650px] h-[650px] bg-blue-900/25 top-[-15%] left-[-10%]"></div>
+    <div id="orb-2" class="ambient-orb w-[550px] h-[550px] bg-amber-600/15 top-[35%] right-[-10%]"></div>
+    <div id="orb-3" class="ambient-orb w-[700px] h-[700px] bg-sky-950/30 bottom-[-15%] left-[20%]"></div>
+    <div class="absolute inset-0 grid-pattern opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#060911]/80 to-[#060911]"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- HEADER                                     -->
+    <!-- ========================================== -->
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 border-b border-slate-800/60 bg-[#060911]/70 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400/20 to-slate-900 border border-amber-400/30 flex items-center justify-center text-amber-300 shadow-lg shadow-amber-500/10 group-hover:border-amber-400 transition-colors">
+            <!-- Icone Balança Jurídica Minimalista -->
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+              <path d="M7 21h10"/>
+              <path d="M12 3v18"/>
+              <path d="M3 7h18"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif text-lg font-bold tracking-wide text-white flex items-center gap-1.5">
+              ADVOCACIA <span class="text-gold-gradient">DIGITAL</span>
+            </span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-medium">Edition Pro • Legal Tech</span>
+          </div>
+        </a>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#beneficios" class="hover:text-amber-300 transition-colors">Benefícios</a>
+          <a href="#comparativo" class="hover:text-amber-300 transition-colors">Comparativo</a>
+          <a href="#templates" class="hover:text-amber-300 transition-colors">Templates</a>
+          <a href="#oferta" class="hover:text-amber-300 transition-colors">Preço</a>
+          <a href="#faq" class="hover:text-amber-300 transition-colors">Dúvidas</a>
+        </nav>
+
+        <!-- CTA Header -->
+        <div class="flex items-center gap-4">
+          <a href="#oferta" class="btn-magnetic hidden sm:inline-flex px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-md shadow-amber-500/20 hover:brightness-110 transition-all">
+            Garantir Acesso PRO
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION                            -->
+    <!-- ========================================== -->
+    <section id="hero" class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-right max-w-4xl ml-auto">
+
+          <!-- Headline com Revelação Cinemática (Wrapped Lines) -->
+          <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+            <span class="reveal-wrapper">
+              <span class="reveal-item text-silver-gradient">O Ecossistema Definitivo de</span>
+            </span>
+            <span class="reveal-wrapper">
+              <span class="reveal-item text-gold-gradient">Sites para a Advocacia Moderna</span>
+            </span>
+          </h1>
+
+          <!-- Subheadline -->
+          <div class="reveal-wrapper">
+            <p class="reveal-item text-base sm:text-xl text-slate-300/90 font-normal max-w-2xl ml-auto leading-relaxed mb-10">
+              Posicione seu escritório com a imponência que sua carreira exige. Templates de altíssima conversão, scripts de triagem ética e <strong>zero custo de mensalidade de hospedagem</strong>.
+            </p>
+          </div>
+
+          <!-- Botões de Ação Hero -->
+          <div id="hero-cta-group" class="opacity-0 translate-y-6 flex flex-col sm:flex-row items-end sm:items-center justify-end gap-4 sm:gap-6 mb-14">
+            <a href="#templates" class="btn-magnetic w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-medium tracking-wide bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 border border-slate-700/70 backdrop-blur-md transition-all flex items-center justify-center gap-2 order-2 sm:order-1">
+              <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Explorar Modelos ao Vivo</span>
+            </a>
+
+            <a href="#oferta" class="btn-magnetic w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold tracking-wider uppercase bg-gold-gradient text-slate-950 shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group order-1 sm:order-2">
+              <span>Quero Meu Site Profissional</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Badges de Prova Social -->
+          <div id="hero-social-proof" class="opacity-0 translate-y-6 flex flex-wrap items-center justify-end gap-6 text-xs text-slate-400">
+            <div class="flex items-center gap-1.5 text-amber-400">
+              <div class="flex">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <span class="font-semibold text-slate-300">4.9/5.0</span>
+              <span class="text-slate-400">(+340 advogados ativos)</span>
+            </div>
+            <div class="w-1 h-1 rounded-full bg-slate-700"></div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Conforme Provimento 205/2021 da OAB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- HERO MOCKUP VISUAL INTERATIVO (PARALLAX)   -->
+        <!-- ========================================== -->
+        <div id="hero-mockup-wrapper" class="relative mt-16 max-w-5xl mx-auto perspective-[1200px]">
+          
+          <!-- Elementos Flutuantes com Parallax -->
+          <div class="parallax-badge absolute -top-6 -left-4 sm:-left-8 z-30 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 shadow-2xl border-amber-400/30">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-400 flex items-center justify-center shadow-lg shadow-amber-400/10 shrink-0">
+              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="text-xs font-bold text-white">Deploy Instantâneo</p>
+                <span class="text-[9px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">10 min</span>
+              </div>
+              <p class="text-[10px] text-slate-400">Sem tocar em código de servidor</p>
+            </div>
+          </div>
+
+          <div class="parallax-badge absolute -bottom-6 -right-4 sm:-right-8 z-30 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 shadow-2xl border-emerald-400/30">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-500/10 shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="text-xs font-bold text-white">Zero Hospedagem</p>
+                <span class="text-[9px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">100% Grátis</span>
+              </div>
+              <p class="text-[10px] text-slate-400">Economize até R$ 1.800/ano</p>
+            </div>
+          </div>
+
+          <!-- Janela do Navegador Mockup Principal -->
+          <div id="hero-browser" class="glass-card rounded-2xl sm:rounded-3xl shadow-2xl border-slate-700/80 overflow-hidden transform-gpu">
+            
+            <!-- Barra do Navegador -->
+            <div class="bg-slate-900/90 border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+              </div>
+              
+              <!-- Barra de Endereço URL -->
+              <div class="bg-slate-950/80 border border-slate-800/80 rounded-full px-4 py-1 text-xs text-slate-400 flex items-center gap-2 max-w-sm w-full mx-4">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-slate-300 font-mono text-[11px]">https://seuescritorio.adv.br</span>
+              </div>
+
+              <div class="text-[11px] text-emerald-400 font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                SSL Ativo
+              </div>
+            </div>
+
+            <!-- Conteúdo da Página do Template Simulado -->
+            <div class="bg-[#0A0E1A] p-6 sm:p-10 relative overflow-hidden">
+              <div class="flex items-center justify-between border-b border-slate-800/80 pb-6 mb-8">
+                <div class="flex items-center gap-2">
+                  <span class="font-serif font-bold text-lg text-white">SANTOS & ASSOCIADOS</span>
+                  <span class="text-[10px] text-amber-400 border border-amber-400/30 rounded px-1.5 py-0.2">DIREITO DIGITAL</span>
+                </div>
+                <span class="text-xs px-4 py-1.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 font-medium">Agendar Consulta</span>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
+                  <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-2 block">Proteção e Estratégia Jurídica</span>
+                  <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
+                    Segurança jurídica de excelência para negócios digitais e patrimônios.
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-400 mb-6">
+                    Atuação especializada em LGPD, Contratos de Tecnologia, Defesa Tributária e Governança Corporativa.
+                  </p>
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs bg-slate-900 border border-slate-700 text-slate-300 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> WhatsApp Integrado
+                    </span>
+                    <span class="text-xs bg-slate-900 border border-slate-700 text-slate-300 px-3 py-1.5 rounded-lg">
+                      OAB/SP 420.912
+                    </span>
+                  </div>
+                </div>
+
+                <div class="md:col-span-5">
+                  <div class="bg-gradient-to-br from-slate-900 to-slate-950 p-5 rounded-2xl border border-slate-800 shadow-xl">
+                    <div class="text-[11px] font-semibold text-slate-400 mb-3 uppercase tracking-wider">Áreas em Destaque</div>
+                    <div class="space-y-2.5">
+                      <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs">
+                        <span class="text-slate-200">LGPD & Compliance</span>
+                        <span class="text-amber-400 font-semibold">→</span>
+                      </div>
+                      <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs">
+                        <span class="text-slate-200">Startups & M&A</span>
+                        <span class="text-amber-400 font-semibold">→</span>
+                      </div>
+                      <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs">
+                        <span class="text-slate-200">Blindagem Patrimonial</span>
+                        <span class="text-amber-400 font-semibold">→</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. PROBLEMA VS. SOLUÇÃO (SCROLLTRIGGER)   -->
+    <!-- ========================================== -->
+    <section id="comparativo" class="py-20 md:py-32 relative border-t border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 block">Transparência Total</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-white mb-6">
+            Por que contratar uma agência tradicional não faz mais sentido?
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            O mercado tradicional cobra caro por processos lentos e tecnologias defasadas com taxas mensais eternas. Conheça a nova era:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+          
+          <!-- Lado Agência Tradicional -->
+          <div class="compare-card glass-card p-8 sm:p-10 rounded-3xl border-rose-900/30 bg-rose-950/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-rose-400 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20">
+                  Modelo Tradicional / Agência
+                </span>
+                <span class="text-2xl text-rose-400">✕</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-slate-200 mb-6">Custoso, Lento e Burocrático</h3>
+              
+              <ul class="space-y-4 text-sm text-slate-300">
+                <li class="flex items-start gap-3">
+                  <span class="text-rose-400 font-bold">✕</span>
+                  <span><strong>R$ 3.000 a R$ 8.000</strong> de custo de desenvolvimento inicial.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-rose-400 font-bold">✕</span>
+                  <span><strong>30 a 60 dias</strong> de espera e reuniões desgastantes.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-rose-400 font-bold">✕</span>
+                  <span><strong>Mensalidades eternas</strong> de servidor e manutenção (R$ 150 a R$ 300/mês).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-rose-400 font-bold">✕</span>
+                  <span>Sites pesados em WordPress suscetíveis a invasões e lentidão.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-rose-400 font-bold">✕</span>
+                  <span>Falta de domínio sobre as regras de publicidade do Provimento OAB.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-rose-300/80">
+              Custo médio no primeiro ano: <strong>mais de R$ 5.500,00</strong>.
+            </div>
+          </div>
+
+          <!-- Lado Advocacia Digital PRO -->
+          <div class="compare-card glass-card p-8 sm:p-10 rounded-3xl border-amber-400/40 bg-gradient-to-br from-slate-900/90 to-amber-950/20 shadow-2xl shadow-amber-500/10 flex flex-col justify-between relative overflow-hidden">
+            
+            <div class="card-spotlight"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-300 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30">
+                  Advocacia Digital PRO
+                </span>
+                <span class="text-2xl text-emerald-400">✓</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-6">Autonomia, Velocidade e Elegância</h3>
+              
+              <ul class="space-y-4 text-sm text-slate-200">
+                <li class="flex items-start gap-3">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>Pagamento Único</strong> por uma fração do valor de uma única consulta.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>No ar em 10 minutos</strong> com vídeo-aula passo a passo didática.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>ZERO MENSALIDADE:</strong> hospedagem global de alta velocidade 100% gratuita na Vercel.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Carregamento instantâneo (HTML/CSS puro) com nota 99+ no Google PageSpeed.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>100% alinhado às diretrizes éticas e de sobriedade da OAB.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-amber-300/90 flex items-center justify-between">
+              <span>Investimento único: <strong>Sem letras miúdas</strong>.</span>
+              <span class="text-emerald-400 font-bold">Economia imediata de 90%+</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. O QUE VOCÊ RECEBE (GRID DE CARDS)       -->
+    <!-- ========================================== -->
+    <section id="beneficios" class="py-20 md:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <span class="text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 block">Conteúdo Completo do Kit</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-white mb-6">
+            Tudo o que você precisa para dominar o posicionamento digital
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Não é só um arquivo de site. É a estrutura completa de apresentação de autoridade e triagem de clientes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          
+          <!-- Card 1: Templates Premium -->
+          <div class="feature-card glass-card p-8 rounded-3xl flex flex-col justify-between group">
+            <div class="card-spotlight"></div>
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/20 text-amber-300 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">4 Templates de Elite</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Modelos prontos para Direito Digital, Empresarial, Família e Previdenciário. Código limpo, ultra-rápido e responsivo.
+              </p>
+            </div>
+            <span class="text-[11px] font-semibold text-amber-400 tracking-wider uppercase flex items-center gap-1">
+              Design System Incluso →
+            </span>
+          </div>
+
+          <!-- Card 2: Vídeo-Aula Deploy 10 Min -->
+          <div class="feature-card glass-card p-8 rounded-3xl flex flex-col justify-between group">
+            <div class="card-spotlight"></div>
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-400/20 text-sky-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">Aula Deploy em 10 Min</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Aprenda o passo a passo exato para subir seu site de graça na Vercel e apontar seu domínio .adv.br ou .com.br.
+              </p>
+            </div>
+            <span class="text-[11px] font-semibold text-sky-400 tracking-wider uppercase flex items-center gap-1">
+              Sem Programação →
+            </span>
+          </div>
+
+          <!-- Card 3: Arquivos de Marketing -->
+          <div class="feature-card glass-card p-8 rounded-3xl flex flex-col justify-between group">
+            <div class="card-spotlight"></div>
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">Assets de Marketing</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Paletas cromáticas sofisticadas, tipografias corporativas e templates de cards para LinkedIn e Instagram.
+              </p>
+            </div>
+            <span class="text-[11px] font-semibold text-emerald-400 tracking-wider uppercase flex items-center gap-1">
+              Branding Jurídico →
+            </span>
+          </div>
+
+          <!-- Card 4: Scripts de Vendas e Triagem -->
+          <div class="feature-card glass-card p-8 rounded-3xl flex flex-col justify-between group">
+            <div class="card-spotlight"></div>
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-400/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">Scripts de Triagem</h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Modelos prontos de mensagens de WhatsApp para filtrar curiosos e direcionar clientes qualificados para a consulta.
+              </p>
+            </div>
+            <span class="text-[11px] font-semibold text-purple-400 tracking-wider uppercase flex items-center gap-1">
+              Captação Ética →
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. SHOWCASE DOS MODELOS INCLUSOS           -->
+    <!-- ========================================== -->
+    <section id="templates" class="py-20 md:py-32 relative border-t border-slate-800/60 bg-slate-950/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 block">Estilos Prontos</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">
+              Templates pensados para a sua área de atuação
+            </h2>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md">
+            Alterne cores, textos e fotos com facilidade. Todos os templates possuem suporte nativo a modo escuro, tipografia de alta legibilidade e velocidade recorde.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Template 1 -->
+          <div class="template-item glass-card rounded-3xl p-6 group">
+            <div class="aspect-[16/10] rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 border border-slate-800 p-6 flex flex-col justify-between mb-6 group-hover:border-amber-400/50 transition-colors">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="font-mono text-amber-300">01. Corporate Lex</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px]">Empresarial & Contratos</span>
+              </div>
+              <div class="my-auto text-center py-6">
+                <div class="font-serif text-2xl font-bold text-white mb-2">LexTech Law Firm</div>
+                <p class="text-xs text-slate-400 max-w-xs mx-auto">Soluções jurídicas preventivas e estratégicas para médias e grandes empresas.</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-3">
+                <span>Páginas: Home, Áreas, Sobre, Contato</span>
+                <span class="text-emerald-400">SEO Otimizado</span>
+              </div>
+            </div>
+            <h4 class="font-serif text-xl font-bold text-white mb-1">Corporate & Tech Law</h4>
+            <p class="text-xs text-slate-400">Design imponente voltado para captação de clientes corporativos e startups.</p>
+          </div>
+
+          <!-- Template 2 -->
+          <div class="template-item glass-card rounded-3xl p-6 group">
+            <div class="aspect-[16/10] rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950/30 border border-slate-800 p-6 flex flex-col justify-between mb-6 group-hover:border-amber-400/50 transition-colors">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="font-mono text-amber-300">02. Heritage Law</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px]">Família & Sucessões</span>
+              </div>
+              <div class="my-auto text-center py-6">
+                <div class="font-serif text-2xl font-bold text-white mb-2">Aurum Advocacia</div>
+                <p class="text-xs text-slate-400 max-w-xs mx-auto">Planejamento sucessório, inventários e proteção patrimonial familiar de alta discrição.</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-3">
+                <span>Páginas: Landing Page Especializada</span>
+                <span class="text-emerald-400">Alta Conversão WhatsApp</span>
+              </div>
+            </div>
+            <h4 class="font-serif text-xl font-bold text-white mb-1">Patrimônio & Família</h4>
+            <p class="text-xs text-slate-400">Estética clássica e acolhedora com paleta champagne e foco em confiança.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. SEÇÃO DE PREÇO / OFERTA ESPECIAL        -->
+    <!-- ========================================== -->
+    <section id="oferta" class="py-24 md:py-36 relative overflow-hidden">
+      
+      <!-- Glow central da oferta -->
+      <div class="ambient-orb w-[600px] h-[600px] bg-amber-500/10 top-[20%] left-[50%] -translate-x-1/2"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center mb-12">
+          <span class="text-xs uppercase tracking-[0.25em] font-bold text-amber-400 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 inline-block mb-4">
+            Oferta Especial de Lançamento
+          </span>
+          <h2 class="font-serif text-4xl sm:text-6xl font-extrabold text-white mb-4">
+            Acesso Completo & Vitalício
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
+            Sem mensalidades. Sem custos de servidor. O kit completo é seu para sempre, incluindo todas as atualizações.
+          </p>
+        </div>
+
+        <!-- Card de Oferta Principal com Borda Glow Dourada -->
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border-amber-400/50 shadow-2xl border-gold-glow relative bg-gradient-to-b from-slate-900/90 via-slate-950 to-[#060911]">
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            <div class="md:col-span-7 space-y-4">
+              <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Disponibilidade Imediata
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">Kit Advocacia Digital PRO</h3>
+              
+              <ul class="space-y-3 text-xs sm:text-sm text-slate-300 pt-2">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>4 Templates Completos e Editáveis</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>Vídeo-aula: Deploy Gratuito Vercel em 10 Minutos</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>Kit de Paletas e Tipografia Executiva</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>Scripts de Atendimento e Triagem no WhatsApp</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>Guia de Ética Digital (Provimento OAB 205/2021)</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-amber-400 font-bold">✓</span>
+                  <span>Atualizações Futuras Gratuitas</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Caixa de Preço à Direita -->
+            <div class="md:col-span-5 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 text-center flex flex-col justify-center">
+              <div class="text-xs text-slate-400 uppercase tracking-widest mb-1">De <span class="line-through">R$ 497,00</span> por</div>
+              
+              <div class="my-3">
+                <span class="text-xs text-slate-400">12x de</span>
+                <div class="font-serif text-4xl sm:text-5xl font-extrabold text-gold-gradient">
+                  R$ 19,78
+                </div>
+                <div class="text-xs text-slate-400 mt-1">ou apenas R$ 197 à vista</div>
+              </div>
+
+              <a href="https://pay.hotmart.com/" target="_blank" class="btn-magnetic w-full py-4 rounded-xl text-xs sm:text-sm font-bold tracking-wider uppercase bg-gold-gradient text-slate-950 shadow-xl shadow-amber-500/30 hover:brightness-110 transition-all mt-4 mb-3 block">
+                Comprar Acesso Agora
+              </a>
+
+              <div class="flex items-center justify-center gap-2 text-[10px] text-slate-400">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/>
+                </svg>
+                <span>7 Dias de Garantia Incondicional</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. FAQ (ACCORDION INTERATIVO)              -->
+    <!-- ========================================== -->
+    <section id="faq" class="py-20 md:py-28 relative border-t border-slate-800/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <span class="text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 block">Perguntas Frequentes</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">
+            Tudo o que você precisa saber
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- Item 1 -->
+          <div class="faq-item glass-card rounded-2xl overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-200 hover:text-amber-300 transition-colors">
+              <span>Preciso ter conhecimento de programação ou web design?</span>
+              <span class="faq-icon text-amber-400 font-mono text-lg transition-transform duration-300">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+              <p class="text-xs sm:text-sm text-slate-400 pb-5 leading-relaxed">
+                Não! O kit foi desenvolvido especificamente para advogados e operadores do direito. Toda a estrutura de código é limpa e intuitiva, e na aula inclusa de 10 minutos mostramos exatamente onde alterar seu nome, telefone, OAB e fotos sem complicação.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item glass-card rounded-2xl overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-200 hover:text-amber-300 transition-colors">
+              <span>Como funciona a hospedagem gratuita na Vercel?</span>
+              <span class="faq-icon text-amber-400 font-mono text-lg transition-transform duration-300">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+              <p class="text-xs sm:text-sm text-slate-400 pb-5 leading-relaxed">
+                A Vercel é a plataforma global utilizada pelas maiores empresas de tecnologia do mundo. Ela oferece um plano gratuito generoso que é mais do que suficiente para suportar centenas de milhares de acessos mensais ao site do seu escritório, com certificado SSL (HTTPS) incluso e velocidade de carregamento instantânea.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item glass-card rounded-2xl overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-200 hover:text-amber-300 transition-colors">
+              <span>O site está em conformidade com as regras de publicidade da OAB?</span>
+              <span class="faq-icon text-amber-400 font-mono text-lg transition-transform duration-300">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+              <p class="text-xs sm:text-sm text-slate-400 pb-5 leading-relaxed">
+                Sim. Todo o design, textos e chamadas de ação foram desenhados estritamente respeitando a sobriedade, caráter informativo e vedações à mercantilização previstas no Código de Ética e no Provimento 205/2021 do Conselho Federal da OAB.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item glass-card rounded-2xl overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-200 hover:text-amber-300 transition-colors">
+              <span>Como é feita a entrega do material após a compra?</span>
+              <span class="faq-icon text-amber-400 font-mono text-lg transition-transform duration-300">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+              <p class="text-xs sm:text-sm text-slate-400 pb-5 leading-relaxed">
+                O acesso é liberado instantaneamente assim que o pagamento for confirmado. Você receberá um e-mail com login na plataforma de membros para baixar os arquivos, acessar os templates e assistir às instruções práticas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="border-t border-slate-900 bg-[#04060B] py-12 text-slate-500 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        
+        <div>
+          <span class="font-serif font-bold text-slate-300 text-sm">ADVOCACIA DIGITAL PRO</span>
+          <p class="mt-1 text-[11px] text-slate-600">Tecnologia, design e autoridade ética para a advocacia moderna.</p>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-300 transition-colors">Termos de Uso</a>
+          <a href="#" class="hover:text-slate-300 transition-colors">Política de Privacidade</a>
+          <a href="#" class="hover:text-slate-300 transition-colors">Suporte</a>
+        </div>
+
+        <div class="text-[11px] text-slate-600">
+          © 2026 Advocacia Digital PRO. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- SCRIPTS GSAP & MOTION INTERACTION          -->
+  <!-- ========================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Registrar Plugin ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ===============================================
+      // 1. AMBIENT BACKGROUND MOTION (Lento e Orgânico)
+      // ===============================================
+      gsap.to("#orb-1", {
+        x: 80,
+        y: 60,
+        scale: 1.15,
+        duration: 12,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to("#orb-2", {
+        x: -70,
+        y: -50,
+        scale: 1.2,
+        duration: 15,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to("#orb-3", {
+        x: 50,
+        y: -40,
+        scale: 0.9,
+        duration: 18,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // ===============================================
+      // 2. HERO REVEAL ANIMATIONS (Expressive Typography)
+      // ===============================================
+      const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+      // Revela as linhas de headline cortadas por overflow:hidden
+      heroTl
+        .to(".reveal-item", {
+          y: "0%",
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.18,
+          delay: 0.2
+        })
+        .to("#hero-cta-group", {
+          y: 0,
+          opacity: 1,
+          duration: 0.9
+        }, "-=0.6")
+        .to("#hero-social-proof", {
+          y: 0,
+          opacity: 1,
+          duration: 0.8
+        }, "-=0.5")
+        .fromTo("#hero-browser", 
+          { y: 60, opacity: 0, rotateX: 6 },
+          { y: 0, opacity: 1, rotateX: 0, duration: 1.3, ease: "power3.out" },
+          "-=0.7"
+        );
+
+      // Floating Idling suave no Mockup
+      gsap.to("#hero-browser", {
+        y: -10,
+        duration: 4.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // ===============================================
+      // 3. SCROLLTELLING & PARALLAX (ScrollTrigger)
+      // ===============================================
+      ScrollTrigger.matchMedia({
+        // Desktop e Tablets
+        "(min-width: 768px)": function() {
+          // Parallax nas badges flutuantes
+          gsap.to(".parallax-badge", {
+            y: -45,
+            scrollTrigger: {
+              trigger: "#hero-mockup-wrapper",
+              start: "top center",
+              end: "bottom top",
+              scrub: 1.2
+            }
+          });
+
+          // Parallax sutil no Browser
+          gsap.to("#hero-browser", {
+            y: 40,
+            scrollTrigger: {
+              trigger: "#hero-mockup-wrapper",
+              start: "top 70%",
+              end: "bottom top",
+              scrub: 1
+            }
+          });
+        }
+      });
+
+      // Revelação em cascata dos cards do comparativo
+      gsap.from(".compare-card", {
+        scrollTrigger: {
+          trigger: "#comparativo",
+          start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.25,
+        ease: "power3.out"
+      });
+
+      // Revelação sequencial dos 4 cards de benefícios (O que você recebe)
+      gsap.from(".feature-card", {
+        scrollTrigger: {
+          trigger: "#beneficios",
+          start: "top 75%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: "power3.out"
+      });
+
+      // Revelação dos templates de demonstração
+      gsap.from(".template-item", {
+        scrollTrigger: {
+          trigger: "#templates",
+          start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+      });
+
+      // ===============================================
+      // 4. MICROINTERAÇÕES: BOTÕES MAGNÉTICOS (GSAP)
+      // ===============================================
+      const magneticButtons = document.querySelectorAll(".btn-magnetic");
+
+      magneticButtons.forEach((btn) => {
+        const xTo = gsap.quickTo(btn, "x", { duration: 0.35, ease: "power3.out" });
+        const yTo = gsap.quickTo(btn, "y", { duration: 0.35, ease: "power3.out" });
+
+        btn.addEventListener("mousemove", (e) => {
+          const { clientX, clientY } = e;
+          const { left, top, width, height } = btn.getBoundingClientRect();
+          const x = (clientX - (left + width / 2)) * 0.32;
+          const y = (clientY - (top + height / 2)) * 0.32;
+          xTo(x);
+          yTo(y);
+        });
+
+        btn.addEventListener("mouseleave", () => {
+          xTo(0);
+          yTo(0);
+        });
+      });
+
+      // ===============================================
+      // 5. GLOW TRACKER (MOUSE EFFECT NOS CARDS GLASS)
+      // ===============================================
+      const glassCards = document.querySelectorAll(".glass-card");
+      glassCards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
+
+      // ===============================================
+      // 6. ACCORDION FAQ
+      // ===============================================
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const trigger = item.querySelector(".faq-trigger");
+        const content = item.querySelector(".faq-content");
+        const icon = item.querySelector(".faq-icon");
+
+        trigger.addEventListener("click", () => {
+          const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+
+          // Fecha todos os outros accordions
+          faqItems.forEach((other) => {
+            other.querySelector(".faq-content").style.maxHeight = null;
+            other.querySelector(".faq-icon").textContent = "+";
+            other.querySelector(".faq-icon").style.transform = "rotate(0deg)";
+          });
+
+          if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.textContent = "−";
+            icon.style.transform = "rotate(180deg)";
+          }
+        });
+      });
+
+      // ===============================================
+      // 7. BARRA DE PROGRESSO DOURADA FULL-HEIGHT (LATERAL)
+      // ===============================================
+      const progressBar = document.querySelector("#side-progress-bar");
+
+      if (progressBar) {
+        ScrollTrigger.create({
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          onUpdate: (self) => {
+            gsap.set(progressBar, { scaleY: self.progress });
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
